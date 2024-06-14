@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('thumb')->nullable();
-            $table->decimal('price', 5, 2); // 5 sono le cifre tot e 2 sono le cifre decimali, e quindi 999,99
+            $table->string('price'); 
             $table->string('series');
             $table->date('sale_date');
             $table->string('type');
