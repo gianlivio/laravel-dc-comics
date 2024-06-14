@@ -21,6 +21,9 @@
                 <td>{{ $curComic->title}}</td>
                 <td>{{ $curComic->price}}</td>
                 <td>{{ $curComic->series}}</td>
+                <td>
+                    <a  class="btn btn-success" href="{{ route('comics.show', [$curComic->id]) }}">Guarda</a>
+                </td>
               </tr>
               @endforeach
             </tbody>
