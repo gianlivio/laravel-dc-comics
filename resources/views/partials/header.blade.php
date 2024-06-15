@@ -1,5 +1,5 @@
 <header class="d-flex justify-content-between align-items-center ps-5 pe-5">
-    <img src="{{ Vite::asset('resources/img/logo.png') }}" alt="logo">
+    <img src="{{ Vite::asset('resources/img/logofumetti.png') }}" alt="logo">
     <ul class="d-flex justify-content-center align-items-center gap-3">
         {{-- per essere linkati ad una route --}}
         <li><a href="">About</a></li>

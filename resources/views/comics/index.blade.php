@@ -4,6 +4,10 @@
  
     <div class="container">
         <h1>Lista fumetti</h1>
+
+        <div>
+          <a href="{{ route('comics.create') }}" class="btn btn-success">Nuovo Fumetto</a>
+        </div>
         <table class="table table-bordered table-dark">
             <thead>
               <tr>
