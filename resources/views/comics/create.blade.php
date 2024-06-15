@@ -1,34 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container py-5">
+        <h1 class="py-3">Inserisci un nuovo Fumetto</h1>
+        <form action="{{ route('comics.store') }}" method="POST">
+            {{-- Cookie per riconoscere il form al server --}}
+            @csrf
 
-<form method="POST" action="{{ route('comics.store') }}">
-    <div>
-        <label for="title">Titolo:</label>
-        <input type="text" id="title" name="title" value="{{ old('title') }}" required>
+            <div class="mb-3">
+                <label for="title" class="form-label">Titolo</label>
+                <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Descrizione</label>
+                <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="thumb" class="form-label">Poster</label>
+                <input type="text" class="form-control" id="thumb" name="thumb">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Prezzo</label>
+                <input type="number" class="form-control" id="price" name="price">
+            </div>
+            <div class="mb-3">
+                <label for="series" class="form-label">Serie</label>
+                <input type="text" class="form-control" id="series" name="series">
+            </div>
+            <div class="mb-3">
+                <label for="sale_date" class="form-label">Riedizione del</label>
+                <input type="text" class="form-control" id="sale_date" name="sale_date">
+            </div>
+            <div class="mb-3">
+                <label for="type" class="form-label">Tipologia</label>
+                <input type="text" class="form-control" id="type" name="type">
+            </div>
+            <div class="py-3">
+                <button type="submit" class="btn btn-primary">Salva</button>
+            </div>
+        </form>
     </div>
-    <div>
-        <label for="description">Descrizione:</label>
-        <textarea id="description" name="description" required>{{ old('description') }}</textarea>
-    </div>
-    <div>
-        <label for="price">Prezzo:</label>
-        <input type="text" id="price" name="price" value="{{ old('price') }}" required>
-    </div>
-    <div>
-        <label for="sale_date">Data di Uscita:</label>
-        <input type="date" id="sale_date" name="sale_date" value="{{ old('sale_date') }}" required>
-    </div>
-    <div>
-        <label for="type">Tipologia:</label>
-        <select id="type" name="type" required>
-            <option value="comic book" {{ old('type') == 'comic book' ? 'selected' : '' }}>Fumetto</option>
-            <option value="graphic novel" {{ old('type') == 'graphic novel' ? 'selected' : '' }}>Romanzo Grafico</option>
-            <!-- Aggiungi altre tipologie se necessario -->
-        </select>
-    </div>
-    <button type="submit">Aggiungi Fumetto</button>
-</form>
-
-
 @endsection
