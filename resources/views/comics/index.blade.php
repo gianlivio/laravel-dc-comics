@@ -28,6 +28,9 @@
                 <td>
                     <a  class="btn btn-success" href="{{ route('comics.show', [$curComic->id]) }}">Guarda</a>
                 </td>
+                <td>
+                  <a  class="btn btn-success" href="{{ route('comics.edit', [$curComic->id]) }}">Modifica</a>
+              </td>
               </tr>
               @endforeach
             </tbody>
