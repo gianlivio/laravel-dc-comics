@@ -18,19 +18,27 @@
               </tr>
             </thead>
             <tbody>
-
                 @foreach ($comicsArray as $curComic)
               <tr>
                 <th scope="row">{{ $curComic->id }}</th>
-                <td>{{ $curComic->title}}</td>
-                <td>{{ $curComic->price}}</td>
-                <td>{{ $curComic->series}}</td>
+                <td>{{ $curComic->title }}</td>
+                <td>{{ $curComic->price }}</td>
+                <td>{{ $curComic->series }}</td>
                 <td>
-                    <a  class="btn btn-success" href="{{ route('comics.show', [$curComic->id]) }}">Guarda</a>
+                    <a  class="btn btn-success" href="{{ route('comics.show', ['comic' => $curComic->id]) }}">Guarda</a>
                 </td>
                 <td>
-                  <a  class="btn btn-success" href="{{ route('comics.edit', [$curComic->id]) }}">Modifica</a>
-              </td>
+                  <a  class="btn btn-success" href="{{ route('comics.edit', ['comic' => $curComic->id]) }}">Modifica</a>
+                </td>
+                <td>
+                  <form action="{{ route('comics.destroy', ['comic' => $curComic->id]) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">
+                      Cancella
+                    </button>
+                  </form>
+                </td>
               </tr>
               @endforeach
             </tbody>
