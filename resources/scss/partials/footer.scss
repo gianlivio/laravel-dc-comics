@@ -1,16 +1,18 @@
-footer {
-    background-color: #343a40;
-    color: white;
+.footer-custom {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
 
     h5 {
         font-weight: bold;
         text-transform: uppercase;
         margin-bottom: 1rem;
+        color: #ffffff;
     }
 
-    p {
-        margin-bottom: 0.5rem;
+    p, small {
         font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
     }
 
     ul {
@@ -21,32 +23,27 @@ footer {
             margin-bottom: 0.5rem;
 
             a {
-                color: white;
+                color: #e0e0e0;
                 text-decoration: none;
                 font-size: 0.9rem;
 
                 &:hover {
                     color: #00bfff;
+                    text-decoration: underline;
                 }
             }
         }
     }
 
-    form {
-        max-width: 500px;
+    .row {
+        margin-bottom: 1.5rem;
+    }
 
-        input {
-            border: 1px solid #cccccc;
-            border-radius: 0.25rem;
-        }
+    .col-lg-4 {
+        text-align: left;
 
-        button {
-            background-color: #00bfff;
-            border: none;
-
-            &:hover {
-                background-color: #008fcc;
-            }
+        @media (max-width: 768px) {
+            text-align: center;
         }
     }
 }

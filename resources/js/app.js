@@ -4,6 +4,7 @@ import "~resources/scss/app.scss";
 import * as bootstrap from "bootstrap";
 // per usare i file img 
 import.meta.glob(["../img/**"]);
+import 'bootstrap/js/dist/carousel';
 
 //  adesso per usare un immagine dentro la cartella resources/img
 {/* <img src="{{ Vite::asset('resources/img/logo.png') }}" alt="Logo Molisana"> */}

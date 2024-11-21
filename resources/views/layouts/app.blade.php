@@ -12,17 +12,18 @@
 </head>
 
 <body>
-    <header>
+    <header class="custom-header">
         @include('partials.header')
     </header>
-    <main>
-        {{-- dove verrà inserito il file della pagina che lo importa --}}
+
+    <main class="main-content">
         @yield('content')
     </main>
-    <footer>
+
+    <footer class="footer-custom">
         @include('partials.footer')
     </footer>
-
 </body>
+
 
 </html>

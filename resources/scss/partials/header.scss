@@ -1,29 +1,49 @@
-header {
+.custom-header {
     img {
-        width: 50px;
+        width: 60px;
         height: auto;
     }
 
     .navbar-brand {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         font-weight: bold;
-        color: white;
+        color: #f0f0f0;
 
         &:hover {
-            color: #cccccc;
+            color: #00bfff;
         }
     }
 
     .nav-link {
-        color: white !important;
-        font-size: 1rem;
+        color: #e0e0e0;
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
 
         &:hover {
-            color: #00bfff !important;
+            color: #00bfff;
         }
     }
 
     .active {
-        border-bottom: 2px solid #00bfff;
+        border-bottom: 3px solid #00bfff;
+    }
+
+    .navbar-toggler {
+        border: 1px solid #00bfff;
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300bfff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+    }
+
+    /* Mobile view specific styles */
+    @media (max-width: 768px) {
+        .navbar-brand {
+            font-size: 1.25rem;
+        }
+
+        .nav-link {
+            text-align: center;
+        }
     }
 }

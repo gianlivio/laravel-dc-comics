@@ -2,6 +2,35 @@
 @import "~bootstrap";
 @import "~fontawesome";
 
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Garantisce che il body occupi tutta la larghezza */
+    height: 100%; /* Garantisce che il body occupi tutta l'altezza */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-header {
+    flex-shrink: 0; /* Evita che l'header si ridimensioni */
+}
+
+-custom {
+    flex-shrink: 0; 
+}
+
+/* Home.blade.php */
+
 .video-container {
     position: relative;
     width: 100%;
@@ -15,7 +44,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        z-index: -1; /* Manda il video sullo sfondo */
+        z-index: -1;
     }
 
     .overlay-content {
@@ -27,16 +56,307 @@
         text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
 
         h1 {
-            font-size: 3rem;
+            font-size: 4rem;
+            font-weight: bold;
+            color: #fff;
         }
 
         p {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #f0f0f0;
         }
 
         .btn {
             font-size: 1.2rem;
             padding: 10px 20px;
+        }
+    }
+}
+
+.container {
+    h2 {
+        font-size: 2.5rem;
+        color: #343a40;
+        font-weight: bold;
+    }
+
+    p.lead {
+        font-size: 1.25rem;
+        line-height: 1.8;
+        color: #555;
+    }
+
+    .btn-outline-primary {
+        color: #007bff;
+        border-color: #007bff;
+
+        &:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+    }
+}
+
+
+
+/* Stili per index.blade.php */
+.video-container-index {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
+    .video-bg-index {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .overlay-content-index {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.comics-carousel-section {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    height: 400px;
+
+    .video-container-carousel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    .carousel-inner {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+
+    }
+
+    .carousel-item {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .video-background-car {
+        position: absolute;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .card-comic {
+        background: rgba(0, 0, 0, 0);
+        border: none;
+
+        .card-img-top-comic {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-title-comic {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .card-text-comic {
+            font-size: 0.9rem;
+        }
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: black;
+        border-radius: 50%;
+        
+    }
+
+    .card-link {
+        text-decoration: none; /* Rimuove la sottolineatura */
+        color: inherit; /* Mantiene il colore del testo originale */
+    }
+    
+    .card-comic:hover {
+        transform: scale(1.05); /* Effetto hover per ingrandire la card */
+        transition: transform 0.3s ease; /* Transizione morbida */
+    }
+}
+
+
+
+/* Stili per show.blade.php */
+.video-container-show {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    .video-bg-show {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        filter: blur(1px); /* Sfocatura per il video di sfondo */
+    }
+
+    .comic-content-container {
+        width: 80%; /* Ridotto rispetto alla larghezza precedente */
+        max-width: 900px; /* Imposta un limite massimo */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-wrap: nowrap; /* Due colonne senza andare a capo */
+        gap: 2rem;
+        align-items: flex-start; /* Allinea in alto */
+        justify-content: space-between; /* Spaziatura tra immagine e dettagli */
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.1); /* Sfondo traslucido più visibile */
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    
+        .comic-image-wrapper {
+            flex: 0 0 300px; /* Mantiene la larghezza fissa per l'immagine */
+            display: flex;
+            justify-content: center;
+    
+            .comic-image {
+                width: 100%; /* L'immagine riempie l'area */
+                max-width: 300px; /* Limita la larghezza */
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            }
+        }
+    
+        .comic-details-wrapper {
+            flex: 1; /* Occupa lo spazio rimanente */
+            color: white;
+    
+            .comic-title {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                color: #00bfff;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+            }
+    
+            .comic-description {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+                line-height: 1.6;
+            }
+    
+            .comic-details-list {
+                list-style: none;
+                padding: 0;
+    
+                li {
+                    margin-bottom: 0.5rem;
+                    font-size: 1rem;
+    
+                    strong {
+                        color: #00bfff;
+                    }
+                }
+            }
+        }
+    }
+    .crud-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    
+        .btn {
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+    
+            &.btn-warning {
+                background-color: #ffc107;
+                border: none;
+    
+                &:hover {
+                    background-color: #e0a800;
+                }
+            }
+    
+            &.btn-danger {
+                background-color: #dc3545;
+                border: none;
+    
+                &:hover {
+                    background-color: #bd2130;
+                }
+            }
+    
+            &.btn-secondary {
+                background-color: #6c757d;
+                border: none;
+    
+                &:hover {
+                    background-color: #5a6268;
+                }
+            }
+        }
+    }
+    
+}
+
+
+
+/* Stili per edit.blade.php */
+.video-container-edit {
+    position: relative;
+    width: 100%;
+    height: auto; /* L'altezza si adatta automaticamente */
+    min-height: calc(100vh - 140px); /* Altezza minima per riempire il contenuto */
+    padding: 20px; /* Spazi per evitare sovrapposizioni */
+    box-sizing: border-box;
+
+    .video-bg-edit {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        filter: blur(6px);
+    }
+
+    .edit-container {
+        position: relative;
+        margin: auto;
+        background-color: rgba(0, 0, 0, 0.1); /* Sfondo trasparente */
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+
+        /* Responsività */
+        @media (max-width: 768px) {
+            max-width: 100%;
         }
     }
 }
